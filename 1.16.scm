@@ -12,3 +12,19 @@
             (expt-iter b
                        (- n 1)
                        (* b a)))))
+
+
+
+((define (square n)
+  (* n n)))
+
+(define (even? n)
+    (cond ((= n 0) #t)
+          ((< n 0) #f)
+          (else (even? (- n 2)))))
+
+
+(define (odd? n)
+    (if (even? n)
+        #f
+        #t))
