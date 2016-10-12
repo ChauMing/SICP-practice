@@ -22,5 +22,5 @@
 
 (define (reverse sequence)
     (fold-right (lambda (x y)
-                (append  y (list x))) 
+                (append y (list x))) 
                 '() sequence))
