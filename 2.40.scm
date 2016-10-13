@@ -15,12 +15,6 @@
         (cons m (enumerate-interval (+ m 1) n))))
 
 
-; (fold-right append
-;     '()
-;     (map (lambda (i)
-;             (map (lambda (j) (list i j))
-;                 (enumerate-interval 1 (- i 1))))
-;         (enumerate-interval 1 n)))
 
 (define (flatmap proc seq)
     (accumulate append '() (map proc seq)))
