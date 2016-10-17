@@ -1,3 +1,9 @@
+/**
+ * genarate m-n array example: m=1, n=3 return [1, 2, 3]
+ * @param  {int} m 
+ * @param  {int} n 
+ * @return {array} 
+ */
 function enumerateInterval(m, n) {
     let arr = [];
     for(let i = m; i <= n; i ++) {
@@ -6,7 +12,13 @@ function enumerateInterval(m, n) {
     return arr;
 }
 
-// 组合
+
+/**
+ * [combine description]
+ * @param  {array} a [[0], [1]]
+ * @param  {array} b [1, 2]
+ * @return {array}   [[0, 1], [0, 2], [1, 1], [1, 2]]
+ */
 function combine(a, b) {
     let c = [];
     b.forEach(bi => 
@@ -17,6 +29,8 @@ function combine(a, b) {
     return c;
 }
 
+
+// 判断皇后是否安全
 function isSafe(l) {
     let currentQueenRow = l[l.length - 1]; //
 
@@ -24,16 +38,19 @@ function isSafe(l) {
 
     if(l === null) return true;
 
-    let flag = true;
     for(let i = 0; i < l.length - 1; i ++) {
-        if(l[i] === currentQueenRow) flag = false;
-        if(l[i] + (colOfNewQueen - i) === currentQueenRow) flag = false;
-        if(l[i] - (colOfNewQueen - i) === currentQueenRow) flag = false;
+        if(l[i] === currentQueenRow) 
+            return false;
+        if(l[i] + (colOfNewQueen - i) === currentQueenRow) 
+            return false;
+        if(l[i] - (colOfNewQueen - i) === currentQueenRow) 
+            return false;
     }
-    return flag;
 }
 
+// 传入棋盘大小
 function queens(boardSize) {
+    
     function queenCols(n, restOfQueens) {
         let q = null;
         if(n === boardSize) return restOfQueens;
@@ -44,8 +61,12 @@ function queens(boardSize) {
         });
         return queenCols(n + 1, q);
     }
+
     return queenCols(0, [[]]);
 }
+
+
+
 console.table(queens(4));
 
 
